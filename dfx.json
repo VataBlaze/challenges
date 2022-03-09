@@ -8,6 +8,10 @@
         "type": "motoko",
         "main": "day_2.mo"
       },
+      "day_3": {
+        "type": "motoko",
+        "main": "day_3.mo"
+      },
       "Debug": {
         "type": "motoko",
         "main": "mo:base/Debug"
