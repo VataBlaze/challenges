@@ -8,6 +8,7 @@ import Iter "mo:base/Iter";
 import Text "mo:base/Text";
 import Int "mo:base/Nat";
 import Array "mo:base/Array";
+import Blob "mo:base/Blob";
 
 actor {
 
@@ -149,13 +150,13 @@ actor {
     };
 
     //Challenge 9
-
+*/
     public func size_in_bytes (t : Text) : async Nat {
         let utf_blob = Text.encodeUtf8(t);
         let array_bytes = Blob.toArray(utf_blob);
         return(array_bytes.size()); 
     };
-*/
+
     //Challenge 10
 
     func swap(array : [Nat], i : Nat, j : Nat) : [Nat] {

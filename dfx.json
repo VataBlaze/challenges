@@ -20,6 +20,14 @@
         "type": "motoko",
         "main": "day_5.mo"
       },
+      "Debug": {
+        "type": "motoko",
+        "main": "mo:base/Debug"
+      },
+      "utils.mo": {
+        "type": "motoko",
+        "main": "utils.mo"
+      },
       "animal": {
         "type": "motoko",
         "main": "animal.mo"
@@ -28,13 +36,9 @@
         "type": "motoko",
         "main": "custom.mo"
       },
-      "utils.mo": {
+      "list": {
         "type": "motoko",
-        "main": "utils.mo"
-      },
-      "Debug": {
-        "type": "motoko",
-        "main": "mo:base/Debug"
+        "main": "list.mo"
       }
     },
     "defaults": {

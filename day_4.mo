@@ -78,18 +78,54 @@ actor {
     public func get_animals () : async [Animal] {
         return List.toArray(animals);
     };
-
+/*
     // Challenge 7 Write a function is_null that takes l of type List<T> and returns a boolean indicating if the list is null . Tips : 
     // Try using a switch/case
 
+    public func is_null(array:[Nat]): async Bool {
+        var l = List.nil<Nat>();
+        for(n in array.vals()){
+            l:= List.push<Nat>(n,l);
+        };
+
+        return li.is_null<Nat>(l);
+    };
+
     // Challenge 8 Write a function last that takes l of type List<T> and returns the optional last element of this list
+    
+    public func last(array:[Nat]): async List.List<Nat> {
+        var l = List.nil<Nat>();
+        for(n in array.vals()){
+            l:= List.push<Nat>(n,l);
+        };
+
+        return li.get_last<Nat>(l);
+    };
 
     // Challenge 9 Write a function size that takes l of type List<T> and returns a Nat indicating the size of this list.
     // Note : If l is null , this function will return 0
+    
+    public func size(array:[Nat]): async Nat {
+        var l = List.nil<Nat>();
+        for(n in array.vals()){
+            l:= List.push<Nat>(n,l);
+        };
+
+        return li.size<Nat>(l);
+    };
 
     // Challenge 10 Write a function get that takes two arguments : l of type List<T> and n of type Nat this function should return the optional 
     // value at rank n in the list
+    
+    public func get_val(array:[Nat], n_rank:Nat): async ?Nat {
+        var l = List.nil<Nat>();
+        for(n in array.vals()){
+            l:= List.push<Nat>(n,l);
+        };
 
+        return li.get_val_at_n<Nat>(l, n_rank);
+    };
+*/
     // Challenge 11 Write a function reverse that takes l of type List and returns the reversed list
 
 

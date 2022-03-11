@@ -29,12 +29,23 @@ actor {
     //Reverse: "let array : [Nat] = [1, 3 , 4];
     //          let size : Nat = array.size() // 3"?
     //then fill/count up from 0?
+
 /*
+    public func init_count(n : Nat) : async [Nat] {
+      let mut = Array.init<Nat>(n, 0);
+      var counter = 0;
+      for(value in mut.vals()){
+        array[i] := counter;
+        counter += 1;
+      };
+      return(Array.freeze<Nat>(mut));
+  };
+  
     public func init_count(n : Nat) : async Nat {
         let array.size() : var Nat = n;
         return array : var Nat = [n];
 
-    }
+    };
 
     public func init_count(n : Nat) : async [Nat] {
         var a : [Nat] = [];
@@ -42,12 +53,25 @@ actor {
             a := Array.append(a,[i]);
         };
         return a;
-    }
+    };
 */
 
     //Challenge 3
     //take an array [Nat] and return "Seven is found" if one digit of ANY number is 7 
     //Otherwise return "Seven not found"
+
+    public func seven(array : [Nat]) : async Text {
+      let array_text : [Text] = Array.map<Nat, Text>(array, Nat.toText);
+      let seven : Char = '7';
+      for(number in array_text.vals()){
+        for(char in number.chars()){
+          if (Char.equal(char, seven)){
+            return "Seven found";
+          };
+        };
+      };
+    return "Seven not found";
+  };
 /*
     private func seven(n : Nat) : async Text {
     let array_1 : Nat = [n];
@@ -67,69 +91,42 @@ actor {
             return "Seven not found";
             };
         };
-    
-    
-
+*/    
     //Challenge 4
     //Write a function nat_opt_to_nat that takes two parameters : n of type ?Nat and m of type Nat
     //This function will return the value of n if n is not null 
     //If n is null it will default to the value of m
 
     public func nat_opt_to_nat(n : ?Nat, m : Nat) : async Nat {
-        switch(n){
-            case(null){
-                return n;
-            };
-            case(?n){
-                return n;
-            };
-        };
+    switch(n){
+      case(null) return m;
+      case(?n) return n; 
     };
-
+  };
 
     //Challenge 5
     //day_of_the_week (1) -> "Monday"
     //day_of_the_week (7) -> "Sunday"
     //day_of_the_week (12) -> null
 
-    public func day_of_the_week(n : Nat) : async Text {
-        switch(n){
-            case(1){
-                return "Monday";
-            };
-            case(2){
-                return "Tuesday";
-            };
-            case(3){
-                return "Wednesday";
-            };
-            case(4){
-                return "Thursday";
-            };
-            case(5){
-                return "Friday";
-            };
-            case(6){
-                return "Saturday";
-            };
-            case(7){
-                return "Sunday";
-            };
-            case(0){
-                return "null";
-            };
-            case(){
-                return "null";
-                };
-            }; 
-        return "null"
+    public func day_of_the_week(n : Nat) : async Text {  
+    switch(n){
+      case(1) return "Monday";
+      case(2) return "Thursday";
+      case(3) return "Wednesday";
+      case(4) return "Tuesday";
+      case(5) return "Friday";
+      case(6) return "Saturday";
+      case(7) return "Sunday";
+      case(_) return " ";
     };
+  };
 
     //Challenge 6
     //Write a function populate_array that takes an array [?Nat] and returns an array [Nat] where 
     //all null values have been replaced by 0
     //Do not use a loop
-
+/*
     public func populate_array(z : [?Nat]) : async [Nat] {
         return Array.map([z], checkval);
     };
@@ -144,13 +141,22 @@ actor {
             };
         };
     };
+*/
+    public func populate_array(array : [?Nat]) : async [Nat] {
+    Array.map<?Nat,Nat>(array, func(x) {
+      switch(x){
+        case(null) return 0;
+        case(?x) return x;
+      };
+    });
+  };
 
     
     //Challenge 7
     //Write a function sum_of_array that takes an array [Nat] and returns the sum of a values in the array.
     //Do not use a loop
 
-    public func sum_of_array(array : [Nat]) : Nat {
+    public func sum_of_array(array : [Nat]) : async Nat {
     let sum = Array.foldLeft<Nat, Nat>(array, 0, func(a , b) {a + b});
     return(sum);
   };
@@ -161,7 +167,7 @@ actor {
     //each value has been squared.
     //Do not use a loop
 
-    public func squared_array(array : [Nat]) : [Nat] {
+    public func squared_array(array : [Nat]) : async [Nat] {
     return(Array.map<Nat,Nat>(array, func(x) { x*x }));
   };
 
@@ -172,8 +178,7 @@ actor {
     //increase_by_index [1, 4, 8, 0] -> [1 + 0, 4 + 1 , 8 + 2 , 0 + 3] = [1,5,10,3]
     //Do not use a loop
 
-    public func increase_by_index(array : [Nat]) : [Nat] {
+    public func increase_by_index(array : [Nat]) : async [Nat] {
     return(Array.mapEntries<Nat,Nat>(array, func(a, index) {a + index}));
   };
-  */
 }
