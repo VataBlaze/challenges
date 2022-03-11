@@ -12,6 +12,26 @@
         "type": "motoko",
         "main": "day_3.mo"
       },
+      "day_4": {
+        "type": "motoko",
+        "main": "day_4.mo"
+      },
+      "day_5": {
+        "type": "motoko",
+        "main": "day_5.mo"
+      },
+      "animal": {
+        "type": "motoko",
+        "main": "animal.mo"
+      },
+      "custom": {
+        "type": "motoko",
+        "main": "custom.mo"
+      },
+      "utils.mo": {
+        "type": "motoko",
+        "main": "utils.mo"
+      },
       "Debug": {
         "type": "motoko",
         "main": "mo:base/Debug"

@@ -7,6 +7,7 @@ import Prim "mo:prim";
 import Iter "mo:base/Iter";
 import Text "mo:base/Text";
 import Int "mo:base/Nat";
+import Array "mo:base/Array";
 
 actor {
 
@@ -125,32 +126,63 @@ actor {
   };
 /*
     //Challenge 7
-    let isWhitespace : (c : Char) -> Bool
     public func trim_whitespace(t : Text) : async Text {
-        
-
-    }
+        let pattern = #text(" ");
+        return(Text.trim(t, p));
+    };
 
     //Challenge 8
     
-    public func duplicated_character(t : Text) : async Text {
-
-    }
+    public func duplicate_character(t : Text) : async Text {
+        var characters : [Char] = [];
+        for (character in t.vals()){
+            switch(Array.filter(characters, f(x) : Text -> Bool {x == character})){
+                case(null) {
+                    characters := Array.append<Text>(characters, [character]);
+                };
+                case(?char){
+                    return Char.toText(char);
+                };
+            };
+        };
+        return (t);
+    };
 
     //Challenge 9
 
-    public func size_in_bytes(t: Text) : async Nat {
-
-  };
-
+    public func size_in_bytes (t : Text) : async Nat {
+        let utf_blob = Text.encodeUtf8(t);
+        let array_bytes = Blob.toArray(utf_blob);
+        return(array_bytes.size()); 
+    };
+*/
     //Challenge 10
 
-    public func bubble_sort array
+    func swap(array : [Nat], i : Nat, j : Nat) : [Nat] {
+        let mutable_array = Array.thaw<Nat>(array);
+        let tmp = mutable_array[i];
+        mutable_array[i] := mutable_array[j];
+        mutable_array[j] := tmp;
+        return(Array.freeze<Nat>(mutable_array))
+    };
+/*
+    public func bubble_sort(array : [Nat]) : async [Nat] {
+        var sorted = array;
+        let size = array.size();
+        for(i in Iter.range(0, size - 1){
+            for (j in Iter.range(0, size - 1 - i)){
+                if(sorted[i] > sorted[i + 1]){
+                    sorted := _swap(sorted, i , j);
+                };
+            };
+        };
+        return (sorted)
+    };
+*/
 
 
 
-
-    
+/*    //Scratchwork
    
     public func is_in_alphabet(word : Text) : async Bool {
         var array : [Bool] = [];
@@ -182,8 +214,8 @@ actor {
             TrieSet.put(trie,i);
         }
     };
-    return t; */
-
+    return t; 
+*/
 
 
 }

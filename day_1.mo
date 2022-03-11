@@ -77,14 +77,29 @@ actor {
         }
     };
 
-    /* Challenge 8
-    public func maximum() : async Nat {
-        if(array.size() == 0) {
-            return(0);
-        } else {
-        }    
-        };
-    */
+    // Challenge 8
+     public func maximum(array : [Nat]) : async Nat {
+    if(array.size() == 0) return 0;
+    var maximum = array[0];
+    for (val in array.vals()){
+      if (val >= maximum) {
+        maximum := val;
+      };
+    };
+    return(maximum)
+  };
+
+
+  //  Challenge 9
+  public func remove_from_array(array : [Nat], n : Nat) : async [Nat] {
+    var new_array : [Nat] = [];
+    for (vals in array.vals()){
+      if(vals != n){
+        new_array := Array.append<Nat>(new_array, [vals]);
+      };
+    };
+    return(new_array);
+  };
     
 
 }

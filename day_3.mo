@@ -144,12 +144,16 @@ actor {
             };
         };
     };
-*/
-/*    
+
+    
     //Challenge 7
     //Write a function sum_of_array that takes an array [Nat] and returns the sum of a values in the array.
     //Do not use a loop
 
+    public func sum_of_array(array : [Nat]) : Nat {
+    let sum = Array.foldLeft<Nat, Nat>(array, 0, func(a , b) {a + b});
+    return(sum);
+  };
 
 
     //Challenge 8
@@ -157,6 +161,9 @@ actor {
     //each value has been squared.
     //Do not use a loop
 
+    public func squared_array(array : [Nat]) : [Nat] {
+    return(Array.map<Nat,Nat>(array, func(x) { x*x }));
+  };
 
 
     //Challenge 9
@@ -165,15 +172,8 @@ actor {
     //increase_by_index [1, 4, 8, 0] -> [1 + 0, 4 + 1 , 8 + 2 , 0 + 3] = [1,5,10,3]
     //Do not use a loop
 
-
-
-    //Challenge 10
-    //Write a higher order function contains<A> that takes 3 parameters : 
-        //an array [A] , a of type A and a function f that takes a tuple of type (A,A) and returns a boolean.
-    //This function should return a boolean indicating whether or not a is present in the array.
-
-
-
-
-*/
+    public func increase_by_index(array : [Nat]) : [Nat] {
+    return(Array.mapEntries<Nat,Nat>(array, func(a, index) {a + index}));
+  };
+  */
 }
